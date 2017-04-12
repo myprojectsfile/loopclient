@@ -1,3 +1,17 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="nav navbar-default">
+  <ul>
+    <li>
+      <a routerLink="/home" routerLinkActive="true">Home</a>
+    </li>
+    <li>
+      <a routerLink="/blog" routerLinkActive="true">Blog</a>
+    </li>
+  </ul>
+</nav>
+
+
+<div class="conatiner">
+  <router-outlet>
+
+  </router-outlet>
+</div>
