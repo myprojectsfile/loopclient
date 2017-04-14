@@ -15,6 +15,7 @@ const appRoutes: Routes = [
   {path: 'blog', component: BlogComponent},
   {path: 'home', component: HomeComponent},
   {path: 'blog/:id', component: PostDetailComponent},
+  {path: 'blog/:id/edit', component: PostFormComponent},
   {path: 'newPost', component: PostFormComponent},
   {path: '', component: HomeComponent},
   {path: '**', component: PagenotfoundComponent},

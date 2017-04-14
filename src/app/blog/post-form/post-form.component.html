@@ -1,5 +1,5 @@
 <div class="container">
-  <div *ngIf="errMessage" class="alert alert-danger" role="alert">...</div>
+  <div *ngIf="errMessage" class="alert alert-danger" role="alert">{{errMessage}}</div>
   <form #f="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="postTitle">Post Title</label>
