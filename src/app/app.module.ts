@@ -2,24 +2,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {RouterModule,Routes} from '@angular/router'
+import {RouterModule, Routes} from '@angular/router';
 import { AppComponent } from './app.component';
 import { BlogComponent } from './blog/blog.component';
 import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import {PostService} from './blog/post.service';
+import { PostDetailComponent } from './blog/post-detail/post-detail.component';
+import { PostFormComponent } from './blog/post-form/post-form.component';
 
-const appRoutes:Routes=[
-  {path:'blog',component:BlogComponent},
-  {path:'home',component:HomeComponent},
-  {path:'',component:HomeComponent},
-  {path:'**',component:PagenotfoundComponent},
-]
+const appRoutes: Routes = [
+  {path: 'blog', component: BlogComponent},
+  {path: 'home', component: HomeComponent},
+  {path: 'blog/:id', component: PostDetailComponent},
+  {path: 'newPost', component: PostFormComponent},
+  {path: '', component: HomeComponent},
+  {path: '**', component: PagenotfoundComponent},
+];
 @NgModule({
   declarations: [
     AppComponent,
     BlogComponent,
     HomeComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    PostDetailComponent,
+    PostFormComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +34,7 @@ const appRoutes:Routes=[
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
