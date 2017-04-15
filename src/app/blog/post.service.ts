@@ -38,4 +38,10 @@ export class PostService {
     });
   }
 
+  updatePost(post: Post): Observable<any> {
+    const url = this.urlPrefix + '/posts/'+post.id;
+    return this.http.put(url, post, {headers: this.headers}).map(res => res.json()).catch(err => {
+      return Observable.throw(err);
+    });
+  }
 }

@@ -1,7 +1,14 @@
 <div class="container">
+  <ul class="nav nav-tabs">
+    <li class="active"><a routerLink="/blog/{{post.id}}">View</a></li>
+    <li><a routerLink="/blog/{{post.id}}/edit">Edit</a></li>
+    <li><a href="#">Delete</a></li>
+  </ul>
+</div>
+
+<div class="container">
   <article>
     <h2>{{post.title}}</h2>
     <div class="post-body">{{post.body}}</div>
   </article>
-
 </div>
