@@ -11,7 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class PostFormComponent implements OnInit {
   post= new Post();
   errMessage = '';
-  loading = true;
+  // loading = true;
 
   constructor(private postService: PostService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
@@ -19,7 +19,7 @@ export class PostFormComponent implements OnInit {
     this.activatedRoute.params
       .map(params => {
         if (typeof params['id'] !== 'undefined' && params['id'] !== null) {
-          this.loading = false;
+          // this.loading = false;
           return params['id'];
         }
       })
