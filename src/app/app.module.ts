@@ -8,8 +8,12 @@ import { BlogComponent } from './blog/blog.component';
 import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import {PostService} from './blog/post.service';
+import {UserService} from './user/user.service';
+import {AuthService} from './user/auth.service';
 import { PostDetailComponent } from './blog/post-detail/post-detail.component';
 import { PostFormComponent } from './blog/post-form/post-form.component';
+import { LoginComponent } from './user/login/login.component';
+import { ProfileComponent } from './user/profile/profile.component';
 
 const appRoutes: Routes = [
   {path: 'blog', component: BlogComponent},
@@ -17,6 +21,8 @@ const appRoutes: Routes = [
   {path: 'blog/:id', component: PostDetailComponent},
   {path: 'blog/:id/edit', component: PostFormComponent},
   {path: 'newPost', component: PostFormComponent},
+  {path: 'user/login', component: LoginComponent},
+  {path: 'user/profile', component: ProfileComponent},
   {path: '', component: HomeComponent},
   {path: '**', component: PagenotfoundComponent},
 ];
@@ -27,7 +33,9 @@ const appRoutes: Routes = [
     HomeComponent,
     PagenotfoundComponent,
     PostDetailComponent,
-    PostFormComponent
+    PostFormComponent,
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +43,10 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [PostService],
+  providers: [
+    PostService,
+    UserService,
+    AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
