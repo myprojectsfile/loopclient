@@ -4,15 +4,20 @@ import {Observable} from 'rxjs/Observable';
 import {Post} from './post';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { AuthService } from "app/user/auth.service";
 
 
 @Injectable()
 export class PostService {
+
   headers= new Headers({
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Authorization':this.authService.getToken()
   });
-  urlPrefix= 'http://127.0.0.1:4001/api';
-  constructor(private http: Http) {
+
+  // urlPrefix= 'http://127.0.0.1:4001/api';
+  urlPrefix= 'http://127.0.0.1:3000/api';
+  constructor(private http: Http,private authService:AuthService) {
 
   }
 

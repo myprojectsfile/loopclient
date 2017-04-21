@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { User } from './user'
 import { isNullOrUndefined } from "util";
+import { UserService } from "app/user/user.service";
 @Injectable()
 export class AuthService {
 
   
+
   constructor() { }
 
   setUser(user:User){
@@ -26,6 +28,11 @@ export class AuthService {
   }
 
   getToken(){
-    localStorage.getItem('accessToken');
+    return localStorage.getItem('accessToken');
+  }
+
+  logout(){
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('accessToken');
   }
 }
