@@ -32,9 +32,16 @@ headers= new Headers({
 
   logout(){
     let accessTokenID=localStorage.getItem('accessToken');
-    console.log('access token is:'+accessTokenID);
+
+    let header= new Headers({
+    'Content-Type': 'application/json',
+    'Authorization':accessTokenID
+    });
+
+    console.log('Authorization header is:'+JSON.stringify(this.headers));
+    console.log('accessTokenID:'+accessTokenID);
     let url=this.urlPrefix+'/Users/logout';
-    return this.http.post(url,{accessTokenID:accessTokenID},{headers:this.headers}).map(res=>res.json()).catch(err=>{
+    return this.http.post(url,{accessTokenID:accessTokenID},{headers:header}).map(res=>res.json()).catch(err=>{
       return Observable.throw(err); 
     })
   }

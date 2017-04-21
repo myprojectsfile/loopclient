@@ -44,8 +44,13 @@ export class PostService {
   }
 
   updatePost(post: Post): Observable<any> {
+    let accessTokenID=localStorage.getItem('accessToken');
+    let header= new Headers({
+    'Content-Type': 'application/json',
+    'Authorization':accessTokenID
+    });
     const url = this.urlPrefix + '/posts/'+post.id;
-    return this.http.put(url, post, {headers: this.headers}).map(res => res.json()).catch(err => {
+    return this.http.put(url, post, {headers: header}).map(res => res.json()).catch(err => {
       return Observable.throw(err);
     });
   }
