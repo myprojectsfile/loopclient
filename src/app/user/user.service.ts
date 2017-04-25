@@ -24,7 +24,7 @@ headers= new Headers({
   }
 
   login(username:string,password:string):Observable<any>{
-    let url=this.urlPrefix+'/Users/login?include=user';
+    let url=this.urlPrefix+'/Accounts/login?include=user';
     return this.http.post(url,{username:username,password:password},{headers:this.headers}).map(res=>res.json()).catch(err=>{
       return Observable.throw(err); 
     })
@@ -40,7 +40,7 @@ headers= new Headers({
 
     console.log('Authorization header is:'+JSON.stringify(this.headers));
     console.log('accessTokenID:'+accessTokenID);
-    let url=this.urlPrefix+'/Users/logout';
+    let url=this.urlPrefix+'/Accounts/logout';
     return this.http.post(url,{accessTokenID:accessTokenID},{headers:header}).map(res=>res.json()).catch(err=>{
       return Observable.throw(err); 
     })
