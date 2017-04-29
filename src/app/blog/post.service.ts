@@ -4,6 +4,8 @@ import {Observable} from 'rxjs/Observable';
 import {Post} from './post';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+
 import { AuthService } from "app/user/auth.service";
 
 
