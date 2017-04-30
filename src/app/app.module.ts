@@ -14,6 +14,7 @@ import { PostDetailComponent } from './blog/post-detail/post-detail.component';
 import { PostFormComponent } from './blog/post-form/post-form.component';
 import { LoginComponent } from './user/login/login.component';
 import { ProfileComponent } from './user/profile/profile.component';
+import { RegisterComponent } from './user/register/register.component';
 
 const appRoutes: Routes = [
   {path: 'blog', component: BlogComponent},
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
   {path: 'blog/:id/edit', component: PostFormComponent},
   {path: 'newPost', component: PostFormComponent},
   {path: 'user/login', component: LoginComponent},
+  {path: 'user/register', component: RegisterComponent},
   {path: 'user/profile', component: ProfileComponent},
   {path: '', component: HomeComponent},
   {path: '**', component: PagenotfoundComponent},
@@ -35,7 +37,8 @@ const appRoutes: Routes = [
     PostDetailComponent,
     PostFormComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
