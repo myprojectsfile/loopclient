@@ -7,6 +7,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
 import { AuthService } from "app/user/auth.service";
+import { User } from "app/user/user";
 
 
 @Injectable()
@@ -39,7 +40,11 @@ export class PostService {
   };
 
   savePost(post: Post): Observable<any> {
-    const url = this.urlPrefix + '/posts';
+    //http://localhost:3000/api/Accounts/5906fd604ecfa32bd0cd3bc1/posts?access_token=ftewqAA1jeirfCsMEX7qKDK27yiAMrNhPV1UoUrf3z1qhElyfDzSChFOIcywLzDb
+    let user=this.authService.getCurrentUser() as User;
+    let userId=user.id;
+
+    const url = this.urlPrefix + '/Accounts/'+userId+'/posts';
     return this.http.post(url, post, {headers: this.headers}).map(res => res.json()).catch(err => {
       return Observable.throw(err);
     });

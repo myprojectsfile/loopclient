@@ -32,6 +32,13 @@ headers= new Headers({
     })
   }
 
+  register(user:User):Observable<any>{
+    let url=this.urlPrefix+'/Accounts';
+    return this.http.post(url,user,{headers:this.headers})
+    .map(res=>res.json())
+    .catch(err=>{return Observable.throw(err);})
+  }
+
   logout(){
     let accessTokenID=localStorage.getItem('accessToken');
 
