@@ -2,16 +2,21 @@ import { Injectable } from '@angular/core';
 import { User } from './user'
 import { isNullOrUndefined } from "util";
 import { UserService } from "app/user/user.service";
+import { Subject } from "rxjs/Subject";
+
 @Injectable()
 export class AuthService {
 
-  
+  onAuthChange$:Subject<User>;
 
-  constructor() { }
+  constructor() { 
+    this.onAuthChange$=new Subject();
+  }
 
   setUser(user:User){
     let userstring=JSON.stringify(user);
     localStorage.setItem('currentUser',userstring);
+    this.onAuthChange$.next(user);
   }
 
   getCurrentUser():User{
@@ -34,5 +39,6 @@ export class AuthService {
   logout(){
     localStorage.removeItem('currentUser');
     localStorage.removeItem('accessToken');
+    this.onAuthChange$.next(null);
   }
 }

@@ -40,7 +40,6 @@ export class PostService {
   };
 
   savePost(post: Post): Observable<any> {
-    //http://localhost:3000/api/Accounts/5906fd604ecfa32bd0cd3bc1/posts?access_token=ftewqAA1jeirfCsMEX7qKDK27yiAMrNhPV1UoUrf3z1qhElyfDzSChFOIcywLzDb
     let user=this.authService.getCurrentUser() as User;
     let userId=user.id;
 
