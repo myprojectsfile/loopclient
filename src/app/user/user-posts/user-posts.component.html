@@ -1,0 +1,20 @@
+<div class="container">
+      <ul class="nav nav-tabs" role="tablist">
+        <li>
+            <a routerLink="/user/profile" >My Profile</a>
+        </li>
+        <li  class="active">
+            <a routerLink="/user/{{user.id}}/blog">My Posts</a>
+        </li>
+    </ul>
+    <div class="user-posts">
+      <p>Welcome To {{user.firstName}}'s Blog</p> 
+    </div>
+    <article *ngFor="let post of posts">
+      <div class="meta">
+        <span>Author: {{post.account.username}}</span>
+        <h1>{{post.title}}</h1>
+        <p>{{post.body}}</p>
+      </div>
+    </article>
+</div>

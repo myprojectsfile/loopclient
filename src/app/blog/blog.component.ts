@@ -18,6 +18,7 @@ export class BlogComponent implements OnInit {
     this.postServie.getPosts().subscribe(
       res=>{
         this.posts=res as Post[];
+        console.log('blog component initialized.');
       },
       err=>{
         console.log(err);

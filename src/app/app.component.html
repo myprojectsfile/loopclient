@@ -1,38 +1,41 @@
 <div class="conatiner">
-        <!-- Static navbar -->
-      <nav class="navbar navbar-default">
-        <div class="container-  ">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+  <!-- Static navbar -->
+  <nav class="navbar navbar-default">
+    <div class="container-  ">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+          aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" routerLink="/home">My Blog</a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li><a routerLink="/home" routerLinkActive="true">Home</a></li>
-              <li><a routerLink="/blog" routerLinkActive="true">Blog</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li *ngIf="loggedIn" ><a (click)="logout()">Logout <small>{{user.username}}</small></a></li>
-                  <li *ngIf="!loggedIn"><a routerLink="/user/login">Login</a></li>
-                  <li *ngIf="!loggedIn"><a routerLink="user/register">Register</a></li>
-                  <li *ngIf="loggedIn"><a routerLink="/newPost">New Post</a></li>
-                </ul>
-              </li>
+        <a class="navbar-brand" routerLink="/home">My Blog</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a routerLink="/home" routerLinkActive="true">Home</a></li>
+          <li><a routerLink="/blog" routerLinkActive="true">Blog</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li *ngIf="loggedIn"><a (click)="logout()">Logout <small>{{user.username}}</small></a></li>
+              <li *ngIf="loggedIn"><a routerLink="/user/profile">My Profile</a></li>
+              <li *ngIf="!loggedIn"><a routerLink="/user/login">Login</a></li>
+              <li *ngIf="!loggedIn"><a routerLink="user/register">Register</a></li>
+              <li *ngIf="loggedIn"><a routerLink="/newPost">New Post</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-      </nav>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+  </nav>
 
   <router-outlet>
 
   </router-outlet>
 </div>
-

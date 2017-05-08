@@ -15,11 +15,13 @@ import { PostFormComponent } from './blog/post-form/post-form.component';
 import { LoginComponent } from './user/login/login.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { RegisterComponent } from './user/register/register.component';
+import { UserPostsComponent } from "./user/user-posts/user-posts.component";
 
 const appRoutes: Routes = [
   {path: 'blog', component: BlogComponent},
   {path: 'home', component: HomeComponent},
   {path: 'blog/:id', component: PostDetailComponent},
+  {path: 'user/:id/blog', component: UserPostsComponent},
   {path: 'blog/:id/edit', component: PostFormComponent},
   {path: 'newPost', component: PostFormComponent},
   {path: 'user/login', component: LoginComponent},
@@ -38,7 +40,8 @@ const appRoutes: Routes = [
     PostFormComponent,
     LoginComponent,
     ProfileComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserPostsComponent
   ],
   imports: [
     BrowserModule,
